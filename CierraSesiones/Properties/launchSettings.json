@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CierraSesiones": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

@@ -7,18 +7,22 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CierraSesiones", "CierraSes
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{8941AAEF-8AC7-47A5-AF73-CF90E94226CF}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CierraSesionesV2", "CierraSesionesV2\CierraSesionesV2.vdproj", "{A3D19CB7-DBC3-4975-8A53-2A0A71C81B2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{20E8B693-A88B-40D8-9254-BAB625CD8A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20E8B693-A88B-40D8-9254-BAB625CD8A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20E8B693-A88B-40D8-9254-BAB625CD8A64}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{20E8B693-A88B-40D8-9254-BAB625CD8A64}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{20E8B693-A88B-40D8-9254-BAB625CD8A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20E8B693-A88B-40D8-9254-BAB625CD8A64}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8941AAEF-8AC7-47A5-AF73-CF90E94226CF}.Debug|Any CPU.ActiveCfg = Debug
 		{8941AAEF-8AC7-47A5-AF73-CF90E94226CF}.Release|Any CPU.ActiveCfg = Release
+		{A3D19CB7-DBC3-4975-8A53-2A0A71C81B2A}.Debug|Any CPU.ActiveCfg = Release
+		{A3D19CB7-DBC3-4975-8A53-2A0A71C81B2A}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

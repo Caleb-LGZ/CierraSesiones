@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using static CierraSesiones.Usuario;
 
 namespace CierraSesiones
 {
@@ -23,7 +24,7 @@ namespace CierraSesiones
                     RedirectStandardOutput = true,
                     CreateNoWindow = true,
                 };
-                
+
                 var Proc = new Process
                 {
                     StartInfo = process
@@ -48,7 +49,7 @@ namespace CierraSesiones
                     for (int i = 0; i < linetext.Length; i++)
                     {
                         //Console.WriteLine("{0}", linetext.Substring(i, 1));
-                        if ( (linetext.Substring(i, 1) == " "))
+                        if ((linetext.Substring(i, 1) == " "))
                         {
                             mensaje += "@";
                         }
@@ -57,16 +58,16 @@ namespace CierraSesiones
                             mensaje += linetext.Substring(i, 1);
                         }
                     }
-                    
-                                    
+
+
                     ///Los @ anteriormente cambiados, los detecta, elimina y agrega a un arreglo
                     String[] sub = mensaje.Split("@");
                     var prueba = new List<string>();
                     int cont = 0;
 
-                    foreach(var usuario in sub)
+                    foreach (var usuario in sub)
                     {
-                        if(usuario != "") 
+                        if (usuario != "")
                         {
                             prueba.Add(usuario);
                             //Console.Write(usuario + " ");
@@ -75,22 +76,19 @@ namespace CierraSesiones
                     }
                     Console.Write("\n");
 
-                    
 
-                    if(cont == 7)
+
+                    if (cont == 7)
                     {
                         usuarios.Add(new Usuario(prueba[0], prueba[1], prueba[2], prueba[3], prueba[4], prueba[5], prueba[6]));
                     }
-                    else if(cont == 6)
+                    else if (cont == 6)
                     {
                         usuarios.Add(new Usuario(prueba[0], prueba[1], prueba[2], prueba[3], prueba[4], prueba[5]));
                     }
-                    
-                    
+
+
                     contador++;
-                 
-
-
 
                     //Console.Write(user.nombre);
 
@@ -107,104 +105,60 @@ namespace CierraSesiones
                     Console.Write("Estado: " + usuarios[i].estado + " ");
                     Console.Write("\n");
 
-                    if(usuarios[i].estado == "Desc")
+                    if (usuarios[i].estado == "Desc")
                     {
                         desc.Add(usuarios[i].id);
+                        usuarios[i].CloseSession(usuarios[i].id);
                     }
+                    //CloseSession(desc);
                 }
 
-                CloseSession(desc);
                 Console.ReadLine();
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
         }
 
 
-        static void CloseSession(List<String> desc)
-        {
+        //static void CloseSession(String args)
+        //{
 
-            string command = "logoff";
-            string args = desc[0];
+        //    string command = "logoff";
+        //    //string args = desc[0];
 
-            try
-            {
-                var process = new ProcessStartInfo
-                {
-                    FileName = command,
-                    Arguments = args,
-                    UseShellExecute = false,
-                    RedirectStandardOutput = true,
-                    CreateNoWindow = false,
-                };
+        //    try
+        //    {
+        //        var process = new ProcessStartInfo
+        //        {
+        //            FileName = command,
+        //            Arguments = args,
+        //            UseShellExecute = false,
+        //            RedirectStandardOutput = true,
+        //            CreateNoWindow = false,
+        //        };
 
-                var Proc = new Process
-                {
-                    StartInfo = process
-                };
-                //Arranca el proceso
-                Proc.Start();
-                while (!Proc.StandardOutput.EndOfStream)
-                {
-                    string linetext = Proc.StandardOutput.ReadLine();
-                    Console.WriteLine(linetext);
-                }
-                Console.ReadLine();
-
-            }
-            catch (Exception ex)
-            {
-                Console.Write(ex);
-            }
-        }
-
-
-    }
-
-
-    class Usuario
-    {
-        public String nombre;
-        public String id;
-        public String console;
-        public String estado;
-        public String nose;
-        public String fecha;
-        public String hora;
-
-
-        public Usuario()
-        {
-            nombre = "";
-            id = "";
-            console = "";
-            estado = "";
-            nose = "";
-            fecha = "";
-            hora = "";
-        }
-
-        public Usuario(String nombre = "", String console = "", String id = "", String estado = "", String nose = "", String fecha = "", String hora = "")
-        {
-            this.nombre = nombre;
-            this.id = id;
-            this.estado = estado;
-            this.console = console;
-            this.nose = nose;
-            this.fecha = fecha;
-            this.hora = hora;
-        }
-        public Usuario(String nombre = "", String id = "", String estado = "", String nose = "", String fecha = "", String hora = "")
-        {
-            this.nombre = nombre;
-            this.id = id;
-            this.estado = estado;
-            this.nose = nose;
-            this.fecha = fecha;
-            this.hora = hora;
-        }
+        //        var Proc = new Process
+        //        {
+        //            StartInfo = process
+        //        };
+        //        //Arranca el proceso
+        //        Proc.Start();
+        //        while (!Proc.StandardOutput.EndOfStream)
+        //        {
+        //            string linetext = Proc.StandardOutput.ReadLine();
+        //            Console.WriteLine(linetext);
+        //        }
+        //        Console.ReadLine();
+        //        Proc.Close();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.Write(ex);
+        //    }
+        //}
 
 
     }
