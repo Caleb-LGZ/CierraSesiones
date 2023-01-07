@@ -75,7 +75,7 @@ namespace CierraSesiones
                 while (!Proc.StandardOutput.EndOfStream)
                 {
                     string linetext = Proc.StandardOutput.ReadLine();
-                    Console.WriteLine(linetext);
+                    //Console.WriteLine(linetext);
                 }
                 //Console.ReadLine();
                 Proc.Close();

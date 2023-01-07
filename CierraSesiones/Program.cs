@@ -22,7 +22,7 @@ namespace CierraSesiones
                     Arguments = args,
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
-                    CreateNoWindow = true,
+                    CreateNoWindow = false,
                 };
 
                 var Proc = new Process
@@ -74,7 +74,7 @@ namespace CierraSesiones
                             cont++;
                         }
                     }
-                    Console.Write("\n");
+                    //Console.Write("\n");
 
 
 
@@ -100,10 +100,10 @@ namespace CierraSesiones
 
                 for (var i = 0; i < usuarios.Count; i++)
                 {
-                    Console.Write("Nombre: " + usuarios[i].nombre + " ");
-                    Console.Write("Id: " + usuarios[i].id + " ");
-                    Console.Write("Estado: " + usuarios[i].estado + " ");
-                    Console.Write("\n");
+                    //Console.Write("Nombre: " + usuarios[i].nombre + " ");
+                    //Console.Write("Id: " + usuarios[i].id + " ");
+                    //Console.Write("Estado: " + usuarios[i].estado + " ");
+                    //Console.Write("\n");
 
                     if (usuarios[i].estado == "Desc")
                     {
@@ -113,12 +113,13 @@ namespace CierraSesiones
                     //CloseSession(desc);
                 }
 
-                Console.ReadLine();
+                //Console.ReadLine();
+                Proc.Kill();
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                //Console.WriteLine(ex);
             }
         }
 
